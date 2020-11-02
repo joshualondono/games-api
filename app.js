@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const app = express();
 require('dotenv').config();
 
-const userRoutes = require('./routes/userRoutes');
+const gameRoutes = require('./routes/gameRoutes');
 
 const port = process.env.PORT || 3001;
 //general middleware
@@ -14,8 +14,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//useroutes middleware
-app.use('/api/v1/users', userRoutes);
+//gameoutes middleware
+app.use('/api/v1/games', gameRoutes);
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
